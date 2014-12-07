@@ -1,0 +1,6 @@
+<div id="comment_form_container">
+  <%= simple_form_for([@post, @comment], remote: false) do |f| %>
+      <%= f.input :body, input_html: { class: "form-control" }, wrapper: false, label: false %>
+      <%= f.submit "Submit", class: "submit pull-right" %>
+  <% end %>
+</div>

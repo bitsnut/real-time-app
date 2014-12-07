@@ -1,0 +1,32 @@
+<div id="posts_show" class="row">
+    <div class="col-md-12">
+      <section class="header">
+        <h1 class="title"><%= @post.title %></h1>
+        <em class="datetime"><%= time_ago_in_words @post.updated_at %> ago</em>
+        <em class="author">by <%= @post.user.email %></em>
+
+        <nav id="control_menu">
+          <ul>
+            <% if user_signed_in? %>
+            <li><%= link_to 'Edit', edit_post_path(@post) %></li>
+            <li><%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+            <li><%= link_to 'New', new_post_path %></li>
+            <% end %>
+            <li><%= link_to 'List', posts_path %></li>
+          </ul>
+        </nav>
+      </section>
+      <section class="body">
+        <p>
+          <%= @post.body %>
+        </p>
+      </section>
+      <section class="comments_section">
+        <%= render partial: "comments/form" if user_signed_in? %>
+
+        <ul id="comment_list">
+          <%= render partial: "comments/comment", collection: @post.root_comments.order("updated_at DESC") %>
+        </ul>
+      </section>
+    </div>
+</div>

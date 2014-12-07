@@ -1,0 +1,137 @@
+<li id="comment_<%= comment.id %>" class="clearfix" data-comment-id="<%= comment.id %>">
+  <strong class="author"><%= comment.user.email %></strong>
+  <span class="time"><%= time_ago_in_words comment.updated_at %></span>
+  <%= link_to "답글", new_comment_path(comment.id), remote: true, class: "reply" if signed_in? %>
+  <%= link_to "수정", edit_post_comment_path(comment.obj, comment), remote: true if signed_in? %>
+  <%= link_to "삭제", post_comment_path(comment.obj, comment), method: :delete if signed_in? %>
+  <div class="body">
+    <%= comment.body %>
+  </div>
+  <div class="form_replace form_replace_<%= comment.id %>"></div>
+  <% if comment.has_children? %>
+      <ul>
+        <% comment.children.each do |comment|  %>
+            <li id="comment_<%= comment.id %>" class="clearfix" data-comment-id="<%= comment.id %>">
+              <strong class="author"><%= comment.user.email %></strong>
+              <span class="time"><%= time_ago_in_words comment.updated_at %></span>
+              <%= link_to "답글", new_comment_path(comment.id), remote: true, class: "reply" if signed_in? %>
+              <%= link_to "수정", edit_post_comment_path(comment.obj, comment), remote: true if signed_in? %>
+              <%= link_to "삭제", post_comment_path(comment.obj, comment), method: :delete if signed_in? %>
+              <div class="body">
+                <%= comment.body %>
+              </div>
+              <div class="form_replace form_replace_<%= comment.id %>"></div>
+              <% if comment.has_children? %>
+                  <ul>
+                    <% comment.children.each do |comment| %>
+                        <li id="comment_<%= comment.id %>" class="clearfix" data-comment-id="<%= comment.id %>">
+                          <strong class="author"><%= comment.user.email %></strong>
+                          <span class="time"><%= time_ago_in_words comment.updated_at %></span>
+                          <%= link_to "답글", new_comment_path(comment.id), remote: true, class: "reply" if signed_in? %>
+                          <%= link_to "수정", edit_post_comment_path(comment.obj, comment), remote: true if signed_in? %>
+                          <%= link_to "삭제", post_comment_path(comment.obj, comment), method: :delete if signed_in? %>
+                          <div class="body">
+                            <%= comment.body %>
+                          </div>
+                          <div class="form_replace form_replace_<%= comment.id %>"></div>
+                          <% if comment.has_children? %>
+                              <ul>
+                                <% comment.children.each do |comment|  %>
+                                    <li id="comment_<%= comment.id %>" class="clearfix" data-comment-id="<%= comment.id %>">
+                                      <strong class="author"><%= comment.user.email %></strong>
+                                      <span class="time"><%= time_ago_in_words comment.updated_at %></span>
+                                      <%= link_to "답글", new_comment_path(comment.id), remote: true, class: "reply" if signed_in? %>
+                                      <%= link_to "수정", edit_post_comment_path(comment.obj, comment), remote: true if signed_in? %>
+                                      <%= link_to "삭제", post_comment_path(comment.obj, comment), method: :delete if signed_in? %>
+                                      <div class="body">
+                                        <%= comment.body %>
+                                      </div>
+                                      <div class="form_replace form_replace_<%= comment.id %>"></div>
+                                      <% if comment.has_children? %>
+                                          <ul>
+                                            <% comment.children.each do |comment| %>
+                                                <li id="comment_<%= comment.id %>" class="clearfix" data-comment-id="<%= comment.id %>">
+                                                  <strong class="author"><%= comment.user.email %></strong>
+                                                  <span class="time"><%= time_ago_in_words comment.updated_at %></span>
+                                                  <%= link_to "답글", new_comment_path(comment.id), remote: true, class: "reply" if signed_in? %>
+                                                  <%= link_to "수정", edit_post_comment_path(comment.obj, comment), remote: true if signed_in? %>
+                                                  <%= link_to "삭제", post_comment_path(comment.obj, comment), method: :delete if signed_in? %>
+                                                  <div class="body">
+                                                    <%= comment.body %>
+                                                  </div>
+                                                  <div class="form_replace form_replace_<%= comment.id %>"></div>
+                                                  <% if comment.has_children? %>
+                                                      <ul>
+                                                        <% comment.children.each do |comment|  %>
+                                                            <li id="comment_<%= comment.id %>" class="clearfix" data-comment-id="<%= comment.id %>">
+                                                              <strong class="author"><%= comment.user.email %></strong>
+                                                              <span class="time"><%= time_ago_in_words comment.updated_at %></span>
+                                                              <%= link_to "답글", new_comment_path(comment.id), remote: true, class: "reply" if signed_in? %>
+                                                              <%= link_to "수정", edit_post_comment_path(comment.obj, comment), remote: true if signed_in? %>
+                                                              <%= link_to "삭제", post_comment_path(comment.obj, comment), method: :delete if signed_in? %>
+                                                              <div class="body">
+                                                                <%= comment.body %>
+                                                              </div>
+                                                              <div class="form_replace form_replace_<%= comment.id %>"></div>
+                                                              <% if comment.has_children? %>
+                                                                  <ul>
+                                                                    <% comment.children.each do |comment| %>
+                                                                        <li id="comment_<%= comment.id %>" class="clearfix" data-comment-id="<%= comment.id %>">
+                                                                          <strong class="author"><%= comment.user.email %></strong>
+                                                                          <span class="time"><%= time_ago_in_words comment.updated_at %></span>
+                                                                          <%= link_to "답글", new_comment_path(comment.id), remote: true, class: "reply" if signed_in? %>
+                                                                          <%= link_to "수정", edit_post_comment_path(comment.obj, comment), remote: true if signed_in? %>
+                                                                          <%= link_to "삭제", post_comment_path(comment.obj, comment), method: :delete if signed_in? %>
+                                                                          <div class="body">
+                                                                            <%= comment.body %>
+                                                                          </div>
+                                                                          <div class="form_replace form_replace_<%= comment.id %>"></div>
+                                                                          <% if comment.has_children? %>
+                                                                              <ul>
+                                                                                <% comment.children.each do |comment| %>
+                                                                                    <li id="comment_<%= comment.id %>" class="clearfix" data-comment-id="<%= comment.id %>">
+                                                                                      <strong class="author"><%= comment.user.email %></strong>
+                                                                                      <span class="time"><%= time_ago_in_words comment.updated_at %></span>
+                                                                                      <%= link_to "답글", new_comment_path(comment.id), remote: true, class: "reply" if signed_in? %>
+                                                                                      <%= link_to "수정", edit_post_comment_path(comment.obj, comment), remote: true if signed_in? %>
+                                                                                      <%= link_to "삭제", post_comment_path(comment.obj, comment), method: :delete if signed_in? %>
+                                                                                      <div class="body">
+                                                                                        <%= comment.body %>
+                                                                                      </div>
+                                                                                      <div class="form_replace form_replace_<%= comment.id %>"></div>
+                                                                                      <% if comment.has_children? %>
+                                                                                          <ul>
+                                                                                            <% comment.children.each do |comment| %>
+                                                                                                <%= render partial: "comments/comment", collection: comment.children.order("updated_at DESC") %>
+                                                                                            <% end %>
+                                                                                          </ul>
+                                                                                      <% end %>
+                                                                                    </li>
+                                                                                <% end %>
+                                                                              </ul>
+                                                                          <% end %>
+                                                                        </li>
+                                                                    <% end %>
+                                                                  </ul>
+                                                              <% end %>
+                                                            </li>
+                                                        <% end %>
+                                                      </ul>
+                                                  <% end %>
+                                                </li>
+                                            <% end %>
+                                          </ul>
+                                      <% end %>
+                                    </li>
+                                <% end %>
+                              </ul>
+                          <% end %>
+                        </li>
+                    <% end %>
+                  </ul>
+              <% end %>
+            </li>
+        <% end %>
+      </ul>
+  <% end %>
+</li>

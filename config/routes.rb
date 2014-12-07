@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  resources :posts do
+    resources :comments
+  end
+
+  get 'comments/(:parent_id)/new', to: 'comments#new', as: :new_comment
+  post 'comments/(:parent_id)', to: 'comments#create'
+
+  devise_for :users
+
+  root 'pages#home'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
