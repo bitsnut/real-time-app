@@ -1,0 +1,68 @@
+#comment_form_container {
+
+
+  .submit {
+    height: 38px;
+    margin-top: 20px;
+    padding: 0 16px;
+    color: #57ad68;
+    font-size: 14px;
+    letter-spacing: -0.02em;
+    text-align: center;
+    border: 1px solid #a9d8b2;
+    vertical-align: middle;
+    outline: 0;
+    background: rgba(0,0,0,0);
+    text-transform: uppercase;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+  }
+
+  .submit:hover {
+    color: darken(#57ad68, 10%);
+    border-color: darken(#a9d8b2, 15%);
+  }
+
+}
+
+#comment_list {
+  list-style: none;
+  clear: both;
+
+  li {
+    padding: 10px;
+    border-left: 2px solid #ddd;
+
+    li,
+    li > li,
+    li > li > li,
+    li > li > li > li,
+    li > li > li > li > li {
+      margin: 10px 0;
+      margin-left: 5px;
+    }
+
+
+    .time {
+      color: #777;
+      font-style: italic;
+    }
+
+    a {
+      font-size: 11px;
+    }
+
+    .body {
+      font-size: 14px;
+      text-align: left;
+
+    }
+  }
+}
+
+body.comment_form_open {
+  #comment_list .body {
+    margin-bottom: 10px;
+  }
+}

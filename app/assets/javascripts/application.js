@@ -11,6 +11,13 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
+//= require bootstrap-sprockets
 //= require turbolinks
-//= require_tree .
+//= require jstz
+//= require faye
+
+$('.dropdown-toggle').dropdown();
+var timeZone = jstz.determine(); // Timezone Setting
+document.cookie = 'jstz_time_zone='+timeZone.name()+';';
