@@ -30,6 +30,8 @@ module RealTimeApp
     # Enable escaping HTML in JSON.
     # config.active_support.escape_html_entities_in_json = true
 
+    config.middleware.delete Rack::Lock
+    config.middleware.use FayeRails::Middleware, mount: '/faye', :timeout => 25
 
   end
 end

@@ -1,0 +1,11 @@
+<h1>Activities</h1>
+<% @activities.each do |activity| %>
+
+    <% if activity.trackable_type == "Comment" %>
+        <% unless activity.owner == activity.trackable.obj.user %>
+        <div class="activity">
+            <strong class="user"><% if activity.owner == current_user %>회원<% else %><%= activity.owner.email %><% end %></strong><%= render_activity activity %>
+        </div>
+        <% end %>
+    <% end %>
+<% end %>

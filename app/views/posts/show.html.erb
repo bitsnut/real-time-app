@@ -24,6 +24,7 @@
       <section class="comments_section">
         <%= render partial: "comments/form" if user_signed_in? %>
 
+        <h3 class="comments_size_heading">댓글수: <em class="number"><%= @post.comments.size %></em></h3>
         <ul id="comment_list">
           <%= render partial: "comments/comment", collection: @post.root_comments.order("updated_at DESC") %>
         </ul>

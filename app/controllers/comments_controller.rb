@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   before_filter :authenticate_user!, except: [:index]
 
   def index
-    @comments = Comment.all
+    @comments = Comment.all.order('created_at DESC')
     respond_to do |format|
       format.html {  }
       format.json { render json: @comments }
@@ -40,7 +40,10 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to "/posts/#{@comment.obj.id}#comment_#{@comment.id}" }
+        format.html {
+          # No need to redirect to the comment where the user wrote because of using real-time comment
+          # redirect_to "/posts/#{@comment.obj.id}#comment_#{@comment.id}"
+        }
         format.json { render json: @comment, status: :created }
         format.js
       else
@@ -83,7 +86,7 @@ class CommentsController < ApplicationController
     # authorize @comment, :destroy?
     @comment.destroy
     respond_to do |format|
-      format.html { go_back }
+      format.html { redirect_to "/posts/#{@comment.obj.id}#comment_#{@comment.id}" }
       format.json { head :no_content }
       format.js
     end

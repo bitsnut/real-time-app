@@ -1,5 +1,5 @@
 <div id="comment_form_container">
-  <%= simple_form_for(@child_comment, url: new_comment_path(@comment), html: { id: "nested_form" }) do |f| %>
+  <%= simple_form_for(@child_comment, url: new_comment_path(@comment), html: { id: "nested_form" }, remote: true) do |f| %>
       <%= f.hidden_field :parent_id %>
       <%= f.input :body, input_html: { class: "body form-control" }, wrapper: false, label: false %>
       <%= f.submit "Submit", class: "submit pull-right" %>
