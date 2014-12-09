@@ -1,4 +1,7 @@
 class Comment < ActiveRecord::Base
+  include PublicActivity::Model
+  tracked owner: Proc.new{ |controller, model| controller && controller.current_user }
+
   acts_as_nested_set :scope => [:commentable_id, :commentable_type]
 
   validates :body, :presence => true
@@ -15,6 +18,10 @@ class Comment < ActiveRecord::Base
 
   def obj
     self.commentable_type.constantize.find(self.commentable_id)
+  end
+
+  def comment_parent
+    Comment.find(parent_id)
   end
 
   # Helper class method that allows you to build a comment

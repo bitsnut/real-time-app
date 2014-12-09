@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  get 'activities/index'
+
   resources :posts do
     resources :comments
   end
+
+  resources :activities
 
   get 'comments/(:parent_id)/new', to: 'comments#new', as: :new_comment
   post 'comments/(:parent_id)', to: 'comments#create'
@@ -9,6 +13,16 @@ Rails.application.routes.draw do
   devise_for :users
 
   root 'pages#home'
+
+  # resources :friendships do
+  #   member do 
+  #     put :accept
+  #     put :block
+  #     put :unfriend
+  #     put :cancel_friend_request
+  #     put :reject_friend_request
+  #   end
+  # end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

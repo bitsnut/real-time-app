@@ -13,10 +13,11 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require faye
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require jstz
-//= require faye
+//= require comments
 
 $('.dropdown-toggle').dropdown();
 var timeZone = jstz.determine(); // Timezone Setting

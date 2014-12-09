@@ -58,4 +58,10 @@ $highlight_color: #4485F6;
       color: darken($highlight_color, 10%);
     }
   }
+
+  .comments_section {
+    .comments_size_heading {
+      font-size: 0.8em;
+    }
+  }
 }

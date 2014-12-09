@@ -1,0 +1,3 @@
+var size = "<em class='number'><%= @comment.obj.comments.size %></em>";
+            $('.comments_size_heading .number').replaceWith(size);
+$("#comment_" + "<%= @comment.id %>").remove();

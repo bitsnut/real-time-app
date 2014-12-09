@@ -22,8 +22,9 @@ gem 'sdoc', '~> 0.4.0',group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',group: :development
 
-gem 'faye'
-gem 'puma'
+gem 'faye-rails'
+# gem 'puma'
+gem 'thin'
 gem 'simple_form'
 gem 'devise'
 gem 'jquery-turbolinks' # To make jQuery.ready() function work when using turbolinks gem
@@ -31,10 +32,13 @@ gem 'bootstrap-sass', '~> 3.3.1'
 gem 'sass-rails', '>= 3.2'
 gem 'autoprefixer-rails'
 gem 'acts_as_commentable_with_threading'
+gem 'public_activity'
+gem 'state_machine'
 
 
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'
   gem 'mysql2'
+  gem 'mailcatcher'
 end

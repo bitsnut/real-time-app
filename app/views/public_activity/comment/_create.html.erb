@@ -1,0 +1,3 @@
+님이<% if activity.trackable.commentable_type == "Post" && activity.trackable.parent_id.nil? %>
+   <strong class="user"><% if activity.owner == current_user %>회원<% else %><%= activity.owner.email %><% end %></strong>님의 글<% else %>
+   <strong class="user"><% if activity.owner == current_user %>회원<% else %><%= activity.owner.email %><% end %></strong>님의 댓글<% end %>에 댓글을 남겼습니다.
